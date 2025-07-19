@@ -10,3 +10,6 @@ saved:
   start: "§9§l[AutoSave]§f Starting auto-save every %interval% seconds."
   stop: "§9§l[AutoSave]§f Auto-save stopped."
   usage: "§9§l[AutoSave]§f §cUsage: /autosavereload" # not used
+
+reload:
+  done: "§9§l[AutoSave]§f §aConfiguration successfully reloaded."
