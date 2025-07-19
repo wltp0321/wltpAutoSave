@@ -1,17 +1,4 @@
-# not completed project!!!!!!!!!!!!!!!
-
-
----
----
----
----
----
----
----
----
----
- 
- # AutoSavePlugin
+# AutoSavePlugin
 
 **AutoSavePlugin**은 마인크래프트 서버에서 자동 저장 및 월드 백업 기능을 제공하는 Spigot/Paper 플러그인입니다.  
 **AutoSavePlugin** is a Spigot/Paper plugin that provides automatic world saving and backup functionality for Minecraft servers.
