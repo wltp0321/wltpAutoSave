@@ -6,7 +6,7 @@
 
     <groupId>world.wltp</groupId>
     <artifactId>AutoSave</artifactId>
-    <version>Alpha-0.0.1</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>AutoSavePlugin</name>

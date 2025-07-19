@@ -7,7 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 
-public class AutoSavePlugin {
+public class AutoSavePlugin extends JavaPlugin{
     private final JavaPlugin plugin;
     private AutoSaveTask task;
     private int interval;

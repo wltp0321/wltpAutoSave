@@ -1,6 +1,6 @@
 name: AutoSavePlugin
 main: world.wltp.Main
-version: Alpha-0.0.1
+version: 1.0
 api-version: 1.21
 author: WLTP
 website: https://www.wltp.world/

@@ -5,6 +5,8 @@ backup:
   notfound: "§9§l[AutoSave]§f §cWorld '%world%' not found."
   usage: "§9§l[AutoSave]§f §cUsage: /backupworld <worldname>"
 
+nopermission: "§9§l[AutoSave]§f §cYou do not have permission to use this command."
+
 saved:
   done: "§9§l[AutoSave]§f §aWorld save completed."
   start: "§9§l[AutoSave]§f Starting auto-save every %interval% seconds."

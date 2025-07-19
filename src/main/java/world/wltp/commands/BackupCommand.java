@@ -49,7 +49,8 @@ public class BackupCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
         if (!sender.hasPermission("autosave.backup")) {
-            sender.sendMessage(ChatColor.RED + "이 명령어를 사용할 권한이 없습니다.");
+            String permission = plugin.getMsgConfig().getString("nopermission", "§9§l[AutoSave]§f §c이 명령어를 사용할 권한이 없습니다.");
+            sender.sendMessage(permission);
             return true;
         }
 
