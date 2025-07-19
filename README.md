@@ -41,3 +41,23 @@
 ```yaml
 autosave:
   interval: 300  # 자동 저장 주기 (초 단위) / Auto-save interval in seconds
+```
+---
+### `msgconfig.yml`
+```yaml
+backup:
+  start: "§9§l[AutoSave]§f §aStarting backup of world '%world%'."
+  done: "§9§l[AutoSave]§f §aBackup of world '%world%' completed. File saved to : "
+  error: "§9§l[AutoSave]§f §cAn error occurred during backup: %error%"
+  notfound: "§9§l[AutoSave]§f §cWorld '%world%' not found."
+  usage: "§9§l[AutoSave]§f §cUsage: /backupworld <worldname>"
+
+saved:
+  done: "§9§l[AutoSave]§f §aWorld save completed."
+  start: "§9§l[AutoSave]§f Starting auto-save every %interval% seconds."
+  stop: "§9§l[AutoSave]§f Auto-save stopped."
+  usage: "§9§l[AutoSave]§f §cUsage: /autosavereload" # not used
+
+reload:
+  done: "§9§l[AutoSave]§f §aConfiguration successfully reloaded."
+```
