@@ -1,0 +1,6 @@
+backup:
+  start: "§a[백업] 월드 '%world%' 백업을 시작합니다..."
+  done: "§a[백업] 월드 '%world%' 백업이 완료되었습니다."
+  error: "§c[백업] 백업 도중 오류가 발생했습니다: %error%"
+  notfound: "§c월드 '%world%' 을 찾을 수 없습니다."
+  usage: "§c사용법: /backupworld <월드이름>"

@@ -1,0 +1,2 @@
+autosave:
+  interval: 300 # 초 단위, 예: 300초 = 5분

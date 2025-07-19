@@ -1,0 +1,27 @@
+name: AutoSavePlugin
+main: world.wltp.Main
+version: 1.0
+api-version: 1.21
+author: WLTP
+website: https://www.wltp.world/
+description: 원하는 시간마다 저장을 할수있습니다 또는 백업 가능합니다
+
+commands:
+  autosavereload:
+    description: 자동 저장 설정 다시 불러오기
+    usage: /autosavereload
+    permission: autosavereload.use
+
+  backupworld:
+    description: 월드 백업 명령어
+    usage: /backupworld <월드이름>
+    permission: backupworld.use
+
+permissions:
+  autosavereload.use:
+    description: 자동 저장 설정 리로드 권한
+    default: op
+
+  backupworld.use:
+    description: 월드 백업 권한
+    default: op
