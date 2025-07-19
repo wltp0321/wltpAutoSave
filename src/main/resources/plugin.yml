@@ -1,6 +1,6 @@
 name: AutoSavePlugin
 main: world.wltp.Main
-version: 1.0
+version: Alpha-0.0.1
 api-version: 1.21
 author: WLTP
 website: https://www.wltp.world/
@@ -10,18 +10,18 @@ commands:
   autosavereload:
     description: 자동 저장 설정 다시 불러오기
     usage: /autosavereload
-    permission: autosavereload.use
+    permission: autosave.use
 
   backupworld:
     description: 월드 백업 명령어
     usage: /backupworld <월드이름>
-    permission: backupworld.use
+    permission: autosave.backup
 
 permissions:
-  autosavereload.use:
+  autosave.reload:
     description: 자동 저장 설정 리로드 권한
     default: op
 
-  backupworld.use:
+  autosave.backup:
     description: 월드 백업 권한
     default: op

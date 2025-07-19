@@ -4,7 +4,7 @@
   <groupId>world.wltp</groupId>
   <artifactId>AutoSave</artifactId>
   <name>AutoSavePlugin</name>
-  <version>1.0-SNAPSHOT</version>
+  <version>Alpha-0.0.1</version>
   <description>Minecraft Auto save plugin By.WLTP</description>
   <build>
     <plugins>
