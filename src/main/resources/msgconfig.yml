@@ -1,18 +1,21 @@
 backup:
   start: "&9&l[AutoSave]&f &aStarting backup of world '%world%'."
-  startall: "&9&l[AutoSave]&f &a서버의 모든 월드 백업을 시작합니다."
+  startall: "&9&l[AutoSave]&f &aStarting backup for all worlds on the server."
   done: "&9&l[AutoSave]&f &aBackup of world '%world%' completed. File saved to : %path%"
   error: "&9&l[AutoSave]&f &cAn error occurred during backup: %error%"
   notfound: "&9&l[AutoSave]&f &cWorld '%world%' not found."
-  usage: "&9&l[AutoSave]&f &cUsage: /backupworld <worldname>"
 
 save:
   done: "&9&l[AutoSave]&f &aWorld save completed."
   start: "&9&l[AutoSave]&f Starting auto-save every %interval% seconds."
   stop: "&9&l[AutoSave]&f Auto-save stopped."
-  usage: "&9&l[AutoSave]&f &cUsage: /autosavereload" # not used
 
 reload:
   done: "&9&l[AutoSave]&f &aConfiguration successfully reloaded."
+
+unknown:
+  command: "&9&l[AutoSave]&f &cUnknown subcommand."
+
+usage: "&9&l[AutoSave]&f &cUsage: /autosave backup or /autosave reload"
 
 nopermission: "&9&l[AutoSave]&f &cYou do not have permission to use this command."

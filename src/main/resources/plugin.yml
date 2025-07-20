@@ -12,16 +12,9 @@ commands:
     usage: /autosave
     permission: autosave.use
 
-  backupworld:
-    description: 월드 백업 명령어
-    usage: /backupworld <월드이름>
-    permission: autosave.backup
 
 permissions:
   autosave.use:
     description: 자동 저장 설정 리로드 권한
     default: op
 
-  autosave.backup:
-    description: 월드 백업 권한
-    default: op

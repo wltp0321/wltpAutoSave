@@ -1,63 +1,57 @@
-# AutoSavePlugin
+# AutoSavePlugin 🛠️
 
-**AutoSavePlugin**은 마인크래프트 서버에서 자동 저장 및 월드 백업 기능을 제공하는 Spigot/Paper 플러그인입니다.  
-**AutoSavePlugin** is a Spigot/Paper plugin that provides automatic world saving and backup functionality for Minecraft servers.
-
----
-
-## 🔧 주요 기능 | Features
-
-- ✅ 서버 월드 자동 저장 (기본 5분 간격)  
-  ✅ Automatic world saving (default every 5 minutes)
-
-- ✅ `/backupworld <월드이름>` 명령어로 tar.gz 압축 백업  
-  ✅ `/backupworld <world>` command for tar.gz world backups
-
-- ✅ `msgconfig.yml`을 통한 안내 메시지 커스터마이징  
-  ✅ Customizable messages via `msgconfig.yml`
-
-- ✅ 비동기 백업 처리로 서버 렉 최소화  
-  ✅ Asynchronous backup to reduce lag
+마인크래프트 서버에서 원하는 시간마다 월드 자동 저장과 백업을 간편하게 할 수 있는 Spigot/Paper 플러그인입니다.
 
 ---
 
-## 📁 설치 방법 | Installation
+## 주요 기능 ✨
 
-1. `AutoSavePlugin.jar`를 `plugins/` 폴더에 넣습니다.  
-   Put `AutoSavePlugin.jar` into your server’s `plugins/` folder.
+- `/autosave backup`  
+  지정한 월드를 `tar.gz` 형식으로 백업합니다.  
+  월드 이름을 생략하면 서버의 모든 월드를 백업합니다. 🌍
 
-2. 서버를 시작합니다.  
-   Start your server.
+- `/autosave reload`  
+  플러그인의 설정 파일(`config.yml`, `msgconfig.yml`)을 다시 불러옵니다. 🔄
 
-3. `config.yml`과 `msgconfig.yml`이 자동 생성됩니다.  
-   The plugin will generate `config.yml` and `msgconfig.yml` automatically.
+- 탭 자동완성 지원 (`backup`, `reload` 및 월드 이름) ⌨️
+
+- 백업 중에도 서버 메인 스레드에서 월드 저장을 처리하여 안전한 백업 가능 💾🛡️
+
+- 사용자 메시지 `msgconfig.yml`을 통해 메시지 커스터마이징 가능 📝
 
 ---
 
-## ⚙️ 설정 | Configuration
+## 설정 파일 ⚙️
 
 ### `config.yml`
 
 ```yaml
 autosave:
-  interval: 300  # 자동 저장 주기 (초 단위) / Auto-save interval in seconds
+  interval: 300
 ```
+
 ---
 ### `msgconfig.yml`
 ```yaml
 backup:
-  start: "§9§l[AutoSave]§f §aStarting backup of world '%world%'."
-  done: "§9§l[AutoSave]§f §aBackup of world '%world%' completed. File saved to : "
-  error: "§9§l[AutoSave]§f §cAn error occurred during backup: %error%"
-  notfound: "§9§l[AutoSave]§f §cWorld '%world%' not found."
-  usage: "§9§l[AutoSave]§f §cUsage: /backupworld <worldname>"
+  start: "&9&l[AutoSave]&f &aStarting backup of world '%world%'."
+  startall: "&9&l[AutoSave]&f &aStarting backup for all worlds on the server."
+  done: "&9&l[AutoSave]&f &aBackup of world '%world%' completed. File saved to : %path%"
+  error: "&9&l[AutoSave]&f &cAn error occurred during backup: %error%"
+  notfound: "&9&l[AutoSave]&f &cWorld '%world%' not found."
 
-saved:
-  done: "§9§l[AutoSave]§f §aWorld save completed."
-  start: "§9§l[AutoSave]§f Starting auto-save every %interval% seconds."
-  stop: "§9§l[AutoSave]§f Auto-save stopped."
-  usage: "§9§l[AutoSave]§f §cUsage: /autosavereload" # not used
+save:
+  done: "&9&l[AutoSave]&f &aWorld save completed."
+  start: "&9&l[AutoSave]&f Starting auto-save every %interval% seconds."
+  stop: "&9&l[AutoSave]&f Auto-save stopped."
 
 reload:
-  done: "§9§l[AutoSave]§f §aConfiguration successfully reloaded."
+  done: "&9&l[AutoSave]&f &aConfiguration successfully reloaded."
+
+unknown:
+  command: "&9&l[AutoSave]&f &cUnknown subcommand."
+
+usage: "&9&l[AutoSave]&f &cUsage: /autosave backup or /autosave reload"
+
+nopermission: "&9&l[AutoSave]&f &cYou do not have permission to use this command."
 ```
