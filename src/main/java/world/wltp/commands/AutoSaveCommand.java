@@ -76,6 +76,7 @@ public class AutoSaveCommand implements CommandExecutor, TabCompleter {
 
             plugin.reloadConfig();
             plugin.reloadMsgConfig();
+            plugin.start();
 
             String reloadDone = plugin.getMsgConfig().getString("reload.done", "&9&l[AutoSave]&f &a설정이 성공적으로 리로드되었습니다.");
             String finalMsg = ChatColor.translateAlternateColorCodes('&', reloadDone);
