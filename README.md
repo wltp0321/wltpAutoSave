@@ -50,7 +50,8 @@ autosave:
 ```
 ### `msgconfig.yml`
 
-```backup:
+```yaml
+backup:
   start: "&9&l[AutoSave]&f &aStarting backup of world '%world%'."
   startall: "&9&l[AutoSave]&f &aStarting backup for all worlds on the server."
   done: "&9&l[AutoSave]&f &aBackup of world '%world%' completed. File saved to : %path%"
