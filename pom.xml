@@ -26,24 +26,26 @@
         </repository>
     </repositories>
 
-
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-compress</artifactId>
-            <version>1.27.1</version> <!-- 최신 버전 확인 필수 -->
+            <version>1.27.1</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.21.7-R0.1-SNAPSHOT</version>
+            <version>${spigot-api.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
     <build>
+        <finalName>AutoSavePlugin-${version}</finalName>
+
         <plugins>
+            <!-- 📦 쉐이딩: 의존성 포함 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -51,16 +53,17 @@
                 <executions>
                     <execution>
                         <phase>package</phase>
-                        <goals><goal>shade</goal></goals>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
                         <configuration>
-                            <relocations>
-                                <!-- 필요 시 패키지 리로케이션 -->
-                            </relocations>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
 
+            <!-- 🔧 컴파일러 설정 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -71,6 +74,31 @@
                 </configuration>
             </plugin>
 
+            <!-- 📤 서버 plugins 폴더로 자동 복사 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-plugin-to-server</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <echo>📁 플러그인 JAR 파일을 서버로 복사 중...</echo>
+                                <copy file="${project.build.directory}/${project.build.finalName}.jar"
+                                      todir="C:/MinecraftServer/plugins"
+                                      overwrite="true" />
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- 🏷️ JAR 설정 (기본 jar 패키징) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>

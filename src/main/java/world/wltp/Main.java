@@ -3,7 +3,7 @@ package world.wltp;
 import org.bukkit.plugin.java.JavaPlugin;
 import world.wltp.autosave.AutoSavePlugin;
 import world.wltp.commands.BackupCommand;
-import world.wltp.commands.AutoSaveReloadCommand;
+import world.wltp.commands.AutoSaveCommand;
 
 public class Main extends JavaPlugin {
     private AutoSavePlugin autoSave;
@@ -14,9 +14,14 @@ public class Main extends JavaPlugin {
         autoSave = new AutoSavePlugin(this);
         autoSave.start();
 
-        // 명령어 등록
-        getCommand("backupworld").setExecutor(new BackupCommand(autoSave));
-        getCommand("autosavereload").setExecutor(new AutoSaveReloadCommand(autoSave));
+        // 명령어 및 탭 완성 등록
+        BackupCommand backupCommand = new BackupCommand(autoSave, this);
+        getCommand("backupworld").setExecutor(backupCommand);
+        getCommand("backupworld").setTabCompleter(backupCommand);
+
+        AutoSaveCommand autoSaveCommand = new AutoSaveCommand(autoSave, this);
+        getCommand("autosave").setExecutor(autoSaveCommand);
+        getCommand("autosave").setTabCompleter(autoSaveCommand);
     }
 
     @Override

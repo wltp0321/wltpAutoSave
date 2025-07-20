@@ -3,17 +3,19 @@ package world.wltp.autosave;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import world.wltp.Main;
 
-public class AutoSavePlugin extends JavaPlugin{
-    private final JavaPlugin plugin;
+public class AutoSavePlugin {
+    private final Main plugin;
     private AutoSaveTask task;
     private int interval;
     private FileConfiguration msgConfig;
 
-    public AutoSavePlugin(JavaPlugin plugin) {
+    public AutoSavePlugin(Main plugin) {
         this.plugin = plugin;
         reloadConfig(); // ← 초기 config도 로드
         reloadMsgConfig();
@@ -42,19 +44,19 @@ public class AutoSavePlugin extends JavaPlugin{
 
     public void start() {
         stop();
-        task = new AutoSaveTask(this);
+        task = new AutoSaveTask(this, plugin);
         task.runTaskTimer(plugin, interval * 20L, interval * 20L);
-        String msg = getMsgConfig().getString("saved.start", "§9§l[AutoSave]§f 자동저장을 %interval% 초 간격으로 시작합니다.");
+        String msg = getMsgConfig().getString("save.start", "&9&l[AutoSave]&f 자동저장을 %interval% 초 간격으로 시작합니다.");
         String intervalMsg = msg.replace("%interval%", String.valueOf(interval));
-        plugin.getLogger().info(ChatColor.translateAlternateColorCodes('§', intervalMsg));
+        plugin.getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', intervalMsg));
     }
 
     public void stop() {
         if (task != null) {
             task.cancel();
             task = null;
-            String msg = getMsgConfig().getString("saved.stop", "§9§l[AutoSave]§f 자동 저장을 중지합니다.");
-            plugin.getLogger().info(ChatColor.translateAlternateColorCodes('§', msg));
+            String msg = getMsgConfig().getString("save.stop", "&9&l[AutoSave]&f 자동 저장을 중지합니다.");
+            plugin.getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
         }
     }
 }
