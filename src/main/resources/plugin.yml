@@ -4,17 +4,15 @@ version: 1.0
 api-version: 1.21
 author: WLTP
 website: https://www.wltp.world/
-description: 원하는 시간마다 저장을 할 수 있습니다 또는 백업 가능합니다
+description: Allows automatic saving or backup at desired intervals
 
 commands:
   autosave:
-    description: 자동 저장 설정 다시 불러오기
+    description: Reload the auto-save configuration
     usage: /autosave
     permission: autosave.use
 
-
 permissions:
   autosave.use:
-    description: 자동 저장 설정 리로드 권한
+    description: Permission to reload auto-save configuration
     default: op
-
